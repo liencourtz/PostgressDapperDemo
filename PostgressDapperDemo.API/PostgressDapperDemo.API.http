@@ -1,0 +1,6 @@
+@PostgressDapperDemo.API_HostAddress = http://localhost:5151
+
+GET {{PostgressDapperDemo.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
