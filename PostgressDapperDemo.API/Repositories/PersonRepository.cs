@@ -17,7 +17,7 @@ namespace PostgressDapperDemo.API.Repositories
 
         public async Task<Person> CreatePersonAsync(Person person)
         {
-            var createdID = await _connection.ExecuteScalarAsync<int>("INSERT INTO person (name, email) VALUES (@name,@email); SELECT LASTVAL();", person);
+            var createdID = await _connection.ExecuteScalarAsync<int>("INSERT INTO person (name, email) VALUES (@name,@email) RETURNING ID;", person);
             person.Id = createdID;
             return person;
         }
